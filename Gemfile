@@ -19,6 +19,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 # Use for securing the configuration
 gem 'figaro'
+# Use Devise for user authentication
+gem 'devise'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -35,6 +37,12 @@ gem 'simplecov', require: false, group: :test
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Use Faker for creating mock in testing
+  gem 'faker'
+  # Use Factory Bot Rails to create mock objects in testing
+  gem 'factory_bot_rails'
+  # Use RSpec Rails as the testing framework
+  gem 'rspec-rails', '~> 3.8', '>= 3.8.2'
 end
 
 group :development do

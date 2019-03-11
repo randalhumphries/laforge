@@ -1,3 +1,5 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/30daf6e0f5a6d39c4b40/maintainability)](https://codeclimate.com/github/randalhumphries/laforge/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/30daf6e0f5a6d39c4b40/test_coverage)](https://codeclimate.com/github/randalhumphries/laforge/test_coverage)
+
 # La Forge - An MSP Documentation Tool
 
 La Forge is a web-based tool for managed service providers to document details of their clients and their client environments.

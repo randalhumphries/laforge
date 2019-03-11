@@ -53,3 +53,7 @@ node_modules/
 
 # Ignore application configuration
 /config/application.yml
+
+# RSpec examples file
+spec/examples.txt
+coverage
