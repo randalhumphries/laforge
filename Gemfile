@@ -21,6 +21,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'figaro'
 # Use Devise for user authentication
 gem 'devise'
+# Use Bootstrap Rails
+gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
