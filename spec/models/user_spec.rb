@@ -17,4 +17,12 @@ RSpec.describe User, type: :model do
   it 'is not valid without a valid company attribute' do
     expect(build(:user, company: nil)).to_not be_valid
   end
+
+  it 'is not valid without a valid first_name attribute' do
+    expect(build(:user, first_name: nil)).to_not be_valid
+  end
+
+  it 'is not valid without a valid last_name attribute' do
+    expect(build(:user, last_name: nil)).to_not be_valid
+  end
 end
