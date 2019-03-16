@@ -1,5 +1,5 @@
-<nav class="navbar navbar-fixed-top">
-  <div class="container">
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <%= link_to("La Forge", root_path, class: "navbar-brand") %>
@@ -10,10 +10,10 @@
       <ul class="nav navbar-nav">
         <li><a href="#">Clients</li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to(icon('fas', 'sign-out-alt', 'Sign Out'), destroy_user_session_path, method: :delete,
-          class: "btn btn-default navbar-right") %></li>
-      </ul>
+      <div class="nav navbar-nav navbar-right">
+        <%= link_to(icon('fas', 'sign-out-alt', 'Sign Out'), destroy_user_session_path, method: :delete,
+          class: "btn btn-default") %>
+      </div>
     </div>
   </div>
 </nav>

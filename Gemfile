@@ -25,6 +25,8 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 # Use jQuery Rails
 gem 'jquery-rails'
+# Use Font Awesome
+gem 'font-awesome-sass', '~> 5.6.1'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
