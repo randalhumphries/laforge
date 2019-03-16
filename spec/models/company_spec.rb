@@ -6,4 +6,8 @@ RSpec.describe Company, type: :model do
     expect(build(:company)).to be_valid
   end
 
+  it 'is not valid without the name attribute' do
+    expect(build(:company, name: nil)).to_not be_valid
+  end
+
 end
