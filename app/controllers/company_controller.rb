@@ -24,7 +24,6 @@ class CompanyController < ApplicationController
   def edit
   end
 
-
   def update
     if @company.update(company_params)
       render :show
@@ -38,6 +37,7 @@ class CompanyController < ApplicationController
   end
 
   private
+
     def company_params
       params.require(:company).permit(:name)
     end
