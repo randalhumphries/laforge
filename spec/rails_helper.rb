@@ -63,4 +63,9 @@ RSpec.configure do |config|
 
   # Include Factory Bot Rails syntax methods
   config.include FactoryBot::Syntax::Methods
+
+  # Include Devise helpers
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
+  config.include Devise::Test::IntegrationHelpers, type: :request
 end
