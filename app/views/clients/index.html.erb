@@ -27,7 +27,7 @@
       </thead>
       <% @clients.each do |client| %>
         <tr>
-          <td><%= client.name %></td>
+          <td><%= link_to(client.name, client_path(client)) %></td>
           <td>
             <%= link_to(icon('fas', 'edit', class: 'fa-2x'),
               edit_client_path(client), { :remote => true, 'data-toggle' => "modal", 'data-target' => "#modal-window-edit"}) %>
