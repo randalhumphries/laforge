@@ -1,0 +1,5 @@
+$('#modal-window-edit').find('.modal-content').html('<%= j (render 'edit') %>');
+$('#modal-window-edit').modal();
+$('#modal-window-edit').on('shown.bs.modal', function () {
+    $('#name').focus();
+})

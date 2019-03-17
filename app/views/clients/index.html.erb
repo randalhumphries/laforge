@@ -1,0 +1,46 @@
+<h1>Clients <%= link_to(icon('fas', 'plus-square', class: 'fa-xs'),
+  new_client_path, { :remote => true, 'data-toggle' => "modal", 'data-target' => "#modal-window-new"}) %></h1>
+
+<!-- New Client Modal -->
+<div id="modal-window-new" class="modal fade" role="dialog" aria-labelledby="newClient" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
+<!-- Edit Client Modal -->
+<div id="modal-window-edit" class="modal fade" role="dialog" aria-labelledby="editClient" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
+<!-- Client table -->
+<% if @clients %>
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <% @clients.each do |client| %>
+        <tr>
+          <td><%= link_to(client.name, client_path(client)) %></td>
+          <td>
+            <%= link_to(icon('fas', 'edit', class: 'fa-2x'),
+              edit_client_path(client), { :remote => true, 'data-toggle' => "modal", 'data-target' => "#modal-window-edit"}) %>
+            <%= link_to(icon('fas', 'trash-alt', class: 'fa-2x'), client, method: :delete,
+              data: { confirm: 'Are you sure?' }) %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% else %>
+  <!-- Message if there aren't any guest to display -->
+  <div class="text-center">
+    <h2>Add a guest to get started!</h2>
+  </div>
+<% end %>
