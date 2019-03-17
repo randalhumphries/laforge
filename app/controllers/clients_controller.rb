@@ -11,7 +11,7 @@ class ClientsController < ApplicationController
   end
 
   def create
-    @client = current_user.company.clients.new(client_params)
+    @client = current_user.company.clients.new(clients_params)
 
     if @client.save
       redirect_to clients_path
@@ -24,7 +24,7 @@ class ClientsController < ApplicationController
   end
 
   def update
-    if @client.update(client_params)
+    if @client.update(clients_params)
       redirect_to clients_path
     else
       flash[:error] = @client.errors.full_messages.to_sentence
@@ -32,7 +32,7 @@ class ClientsController < ApplicationController
   end
 
   def destroy
-    if @client.destroy(client_params)
+    if @client.destroy
       redirect_to clients_path
     else
       flash[:error] = @client.errors.full_messages.to_sentence
@@ -42,7 +42,7 @@ class ClientsController < ApplicationController
   private
 
     def clients_params
-      params.require(:clients).permit(:name)
+      params.require(:client).permit(:name)
     end
 
     def find_clients
@@ -50,6 +50,6 @@ class ClientsController < ApplicationController
     end
 
     def find_client
-      @client = current_user.company.client.find(params[:id])
+      @client = current_user.company.clients.find(params[:id])
     end
 end
