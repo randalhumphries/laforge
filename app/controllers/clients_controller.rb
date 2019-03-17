@@ -46,7 +46,7 @@ class ClientsController < ApplicationController
     end
 
     def find_clients
-      @clients = current_user.company.clients
+      @clients = current_user.company.clients.sort_by { |client| client.name }
     end
 
     def find_client
