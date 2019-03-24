@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :company
   resources :clients do
     resources :contacts
+    resources :locations
   end
   devise_for :users
 end
