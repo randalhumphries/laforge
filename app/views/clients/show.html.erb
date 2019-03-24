@@ -1,2 +1,58 @@
 <h1><%= @client.name %></h1>
-<p>I'm really not sure yet how this should be laid out.</p>
+<hr />
+<h2>Contacts <%= link_to(icon('fas', 'plus-square', class: 'fa-xs'),
+  new_client_contact_path(@client), { :remote => true, 'data-toggle' => "modal", 'data-target' => "#modal-window-new-contact"}) %>
+</h2>
+
+<!-- New Contact Modal -->
+<div id="modal-window-new-contact" class="modal fade" role="dialog" aria-labelledby="newContact" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
+<!-- Edit Contact Modal -->
+<div id="modal-window-edit-contact" class="modal fade" role="dialog" aria-labelledby="editContact" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
+<% if @client.contact.empty? %>
+  <!-- Message if there aren't any contacts to display -->
+  <div class="text-center">
+    <h2>Add a contact to get started!</h2>
+  </div>
+<% else %>
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Title</th>
+          <th>Email</th>
+          <th>Primary Phone</th>
+          <th>Secondary Phone</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <% @client.contact.each do |contact| %>
+        <tr>
+          <td><%= contact.full_name %></td>
+          <td><%= contact.title %></td>
+          <td><%= mail_to(contact.email) %></td>
+          <td><%= link_to(contact.primary_phone, "tel:#{contact.primary_phone}") %></td>
+          <td><%= link_to(contact.secondary_phone, "tel:#{contact.secondary_phone}") %></td>
+          <td>
+            <%= link_to(icon('fas', 'edit', class: 'fa-2x'),
+              edit_client_contact_path(@client, contact), { :remote => true, 'data-toggle' => "modal", 'data-target' => "#modal-window-edit"}) %>
+            <%= link_to(icon('fas', 'trash-alt', class: 'fa-2x'), client_contact_path(@client, contact), method: :delete,
+              data: { confirm: 'Are you sure?' }) %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>
+<hr />
+<h2>Locations</h2>

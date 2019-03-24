@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   root 'clients#index'
   
   resources :company
-  resources :clients
-  resources :contacts
+  resources :clients do
+    resources :contacts
+  end
   devise_for :users
 end
