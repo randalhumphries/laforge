@@ -1,0 +1,50 @@
+<%= form_for([@client, @contact], html: { role: 'form', class: 'form-horizontal' }) do |f| %>
+  <div class='form-group'>
+      <%= f.label :first_name, 'First Name', class: 'col-sm-3 control-label' %>
+    <div class='col-sm-9'>
+      <%= f.text_field :first_name, id: 'first_name', placeholder: "Sarah", class: 'form-control', required: true %>
+    </div>
+  </div>
+  <div class='form-group'>
+      <%= f.label :last_name, 'Last Name', class: 'col-sm-3 control-label' %>
+    <div class='col-sm-9'>
+      <%= f.text_field :last_name, id: 'last_name', placeholder: "Martinez", class: 'form-control', required: true %>
+    </div>
+  </div>
+  <div class='form-group'>
+      <%= f.label :title, 'Title', class: 'col-sm-3 control-label' %>
+    <div class='col-sm-9'>
+      <%= f.text_field :title, id: 'title', placeholder: "Proprietor", class: 'form-control', required: true %>
+    </div>
+  </div>
+  <div class='form-group'>
+      <%= f.label :email, 'Email', class: 'col-sm-3 control-label' %>
+    <div class='col-sm-9'>
+      <%= f.email_field :email, id: 'email', placeholder: "sarah@sarahsbakery.com", class: 'form-control', required: true %>
+    </div>
+  </div>
+  <div class='form-group'>
+      <%= f.label :primary_phone, 'Primary Phone', class: 'col-sm-3 control-label' %>
+    <div class='col-sm-9'>
+      <%= f.telephone_field :primary_phone, id: 'primary_phone', placeholder: "(555) 867-5309", class: 'form-control', required: true %>
+    </div>
+  </div>
+  <div class='form-group'>
+      <%= f.label :secondary_phone, 'Secondary Phone', class: 'col-sm-3 control-label' %>
+    <div class='col-sm-9'>
+      <%= f.telephone_field :secondary_phone, id: 'secondary_phone', placeholder: "(202) 555-0191", class: 'form-control', required: true %>
+    </div>
+  </div>
+  <div class='modal-footer'>
+    <button
+      type='button'
+      class='btn btn-danger'
+      data-dismiss='modal'
+    >
+      <%= icon('fas', 'ban') %> Cancel
+    </button>
+    <%= button_tag(class: 'btn btn-primary') do %>
+      <%= icon('fas', 'check') %> Save
+    <% end %>
+  </div>
+<% end %>

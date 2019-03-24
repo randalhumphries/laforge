@@ -1,0 +1,5 @@
+$('#modal-window-edit-contact').find('.modal-content').html('<%= j (render 'new') %>');
+$('#modal-window-edit-contact').modal();
+$('#modal-window-edit-contact').on('shown.bs.modal', function () {
+    $('#name').focus();
+})
