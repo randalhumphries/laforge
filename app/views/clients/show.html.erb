@@ -114,3 +114,20 @@
   </div>
 <% end %>
 <hr />
+<h2>Accounts <%= link_to(icon('fas', 'plus-square', class: 'fa-xs'),
+  new_client_account_path(@client), { :remote => true, 'data-toggle' => "modal", 'data-target' => "#modal-window-new-account"}) %>
+</h2>
+
+<!-- New Account Modal -->
+<div id="modal-window-new-account" class="modal fade" role="dialog" aria-labelledby="newAccount" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
+<!-- Edit Account Modal -->
+<div id="modal-window-edit-account" class="modal fade" role="dialog" aria-labelledby="editAccount" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
