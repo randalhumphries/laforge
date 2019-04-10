@@ -1,0 +1,5 @@
+$('#modal-window-new-location').find('.modal-content').html('<%= j (render 'new') %>');
+$('#modal-window-new-location').modal();
+$('#modal-window-new-location').on('shown.bs.modal', function () {
+    $('#name').focus();
+})

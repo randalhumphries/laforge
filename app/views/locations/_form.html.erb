@@ -1,0 +1,56 @@
+<%= form_for([@client, @location], html: { role: 'form', class: 'form-horizontal' }) do |f| %>
+  <div class='form-group'>
+      <%= f.label :name, 'Name', class: 'col-sm-3 control-label' %>
+    <div class='col-sm-9'>
+      <%= f.text_field :name, id: 'name', placeholder: "Main", class: 'form-control', required: true %>
+    </div>
+  </div>
+  <div class='form-group'>
+      <%= f.label :primary_address, 'Primary Address', class: 'col-sm-3 control-label' %>
+    <div class='col-sm-9'>
+      <%= f.text_field :primary_address, id: 'primary_address', placeholder: "123 Awesome St.", class: 'form-control', required: true %>
+    </div>
+  </div>
+  <div class='form-group'>
+      <%= f.label :secondary_address, 'Secondary Address', class: 'col-sm-3 control-label' %>
+    <div class='col-sm-9'>
+      <%= f.text_field :secondary_address, id: 'secondary_address', placeholder: "Ste. 100", class: 'form-control', required: true %>
+    </div>
+  </div>
+  <div class='form-group'>
+      <%= f.label :city, 'City', class: 'col-sm-3 control-label' %>
+    <div class='col-sm-9'>
+      <%= f.text_field :city, id: 'city', placeholder: "Savannah", class: 'form-control', required: true %>
+    </div>
+  </div>
+  <div class='form-group'>
+      <%= f.label :state, 'State', class: 'col-sm-3 control-label' %>
+    <div class='col-sm-9'>
+      <%= f.text_field :state, id: 'state', placeholder: "GA", class: 'form-control', required: true %>
+    </div>
+  </div>
+  <div class='form-group'>
+      <%= f.label :zip, 'Zip Code', class: 'col-sm-3 control-label' %>
+    <div class='col-sm-9'>
+      <%= f.text_field :zip, id: 'zip', placeholder: "31404", class: 'form-control', required: true %>
+    </div>
+  </div>
+  <div class='form-group'>
+      <%= f.label :main_phone, 'Main Phone', class: 'col-sm-3 control-label' %>
+    <div class='col-sm-9'>
+      <%= f.text_field :main_phone, id: 'main_phone', placeholder: "(912) 867-5309", class: 'form-control', required: true %>
+    </div>
+  </div>
+  <div class='modal-footer'>
+    <button
+      type='button'
+      class='btn btn-danger'
+      data-dismiss='modal'
+    >
+      <%= icon('fas', 'ban') %> Cancel
+    </button>
+    <%= button_tag(class: 'btn btn-primary') do %>
+      <%= icon('fas', 'check') %> Save
+    <% end %>
+  </div>
+<% end %>

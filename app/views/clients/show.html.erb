@@ -55,4 +55,62 @@
   </div>
 <% end %>
 <hr />
-<h2>Locations</h2>
+<h2>Locations <%= link_to(icon('fas', 'plus-square', class: 'fa-xs'),
+  new_client_location_path(@client), { :remote => true, 'data-toggle' => "modal", 'data-target' => "#modal-window-new-location"}) %>
+</h2>
+
+<!-- New Location Modal -->
+<div id="modal-window-new-location" class="modal fade" role="dialog" aria-labelledby="newLocation" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
+<!-- Edit Location Modal -->
+<div id="modal-window-edit-location" class="modal fade" role="dialog" aria-labelledby="editLocation" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
+<% if @client.location.empty? %>
+  <!-- Message if there aren't any locations to display -->
+  <div class="text-center">
+    <h2>Add a location to get started!</h2>
+  </div>
+<% else %>
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Address #1</th>
+          <th>Address #2</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Zip</th>
+          <th>Main Phone</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <% @client.location.each do |location| %>
+        <tr>
+          <td><%= location.name %></td>
+          <td><%= location.primary_address %></td>
+          <td><%= location.secondary_address %></td>
+          <td><%= location.city %></td>
+          <td><%= location.state %></td>
+          <td><%= location.zip %></td>
+          <td><%= location.main_phone %></td>
+          <td>
+            <%= link_to(icon('fas', 'edit', class: 'fa-2x'),
+              edit_client_location_path(@client, location), { :remote => true, 'data-toggle' => "modal", 'data-target' => "#modal-window-edit"}) %>
+            <%= link_to(icon('fas', 'trash-alt', class: 'fa-2x'), client_location_path(@client, location), method: :delete,
+              data: { confirm: 'Are you sure?' }) %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>
+<hr />
