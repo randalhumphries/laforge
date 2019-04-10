@@ -1,5 +1,11 @@
 <%= form_for([@client, @location], html: { role: 'form', class: 'form-horizontal' }) do |f| %>
   <div class='form-group'>
+      <%= f.label :name, 'Name', class: 'col-sm-3 control-label' %>
+    <div class='col-sm-9'>
+      <%= f.text_field :name, id: 'name', placeholder: "Main", class: 'form-control', required: true %>
+    </div>
+  </div>
+  <div class='form-group'>
       <%= f.label :primary_address, 'Primary Address', class: 'col-sm-3 control-label' %>
     <div class='col-sm-9'>
       <%= f.text_field :primary_address, id: 'primary_address', placeholder: "123 Awesome St.", class: 'form-control', required: true %>

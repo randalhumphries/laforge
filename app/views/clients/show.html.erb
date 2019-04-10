@@ -83,6 +83,7 @@
     <table class="table table-hover table-bordered">
       <thead>
         <tr>
+          <th>Name</th>
           <th>Address #1</th>
           <th>Address #2</th>
           <th>City</th>
@@ -94,6 +95,7 @@
       </thead>
       <% @client.location.each do |location| %>
         <tr>
+          <td><%= location.name %></td>
           <td><%= location.primary_address %></td>
           <td><%= location.secondary_address %></td>
           <td><%= location.city %></td>

@@ -5,6 +5,10 @@ RSpec.describe Location, type: :model do
     expect(build(:location)).to be_valid
   end
 
+  it 'is not valid without a name attribute' do
+    expect(build(:location, name: nil)).to_not be_valid
+  end
+
   it 'is not valid without a primary address attribute' do
     expect(build(:location, primary_address: nil)).to_not be_valid
   end

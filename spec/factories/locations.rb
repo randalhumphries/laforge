@@ -6,6 +6,7 @@ FactoryBot.define do
     state             { Faker::Address.state }
     zip               { Faker::Address.zip }
     main_phone        { Faker::PhoneNumber.phone_number }
+    name              { "Main" }
     client
   end
 end
