@@ -1,0 +1,10 @@
+$('#modal-window-new-account').find('.modal-content').html('<%= j (render 'new') %>');
+$('#modal-window-new-account').modal();
+$('#account_account_type').select2({
+    dropdownParent: $("#modal-window-new-account"),
+    theme: "bootstrap",
+    placeholder: 'Select an account type',
+});
+$('#modal-window-new-account').on('shown.bs.modal', function () {
+    $('#account_account_type').focus();
+})

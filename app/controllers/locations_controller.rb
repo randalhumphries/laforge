@@ -12,7 +12,7 @@ class LocationsController < ApplicationController
   end
 
   def create
-    @location = @client.location.new(address_params)
+    @location = @client.location.new(location_params)
 
     if @location.save
       redirect_to client_path(@client)
@@ -25,7 +25,7 @@ class LocationsController < ApplicationController
   end
 
   def update
-    if @location.update(address_params)
+    if @location.update(location_params)
       redirect_to client_path(@client)
     else
       flash[:error] = @location.errors.full_messages.to_sentence
@@ -42,7 +42,7 @@ class LocationsController < ApplicationController
 
   private
   
-    def address_params
+    def location_params
       params.require(:location).permit(
         :name,
         :primary_address,
