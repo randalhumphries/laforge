@@ -154,7 +154,11 @@
         <tr>
           <td><%= account.account_type %></td>
           <td><%= account.name %></td>
-          <td><%= account.address %></td>
+          <% if account.address.downcase.include? "http" %>
+            <td><%= link_to(account.address, "#{account.address}") %></td>
+          <% else %>
+            <td><%= account.address %></td>
+          <% end %>
           <td><%= account.username %></td>
           <td><%= account.password %></td>
           <td>
