@@ -1,0 +1,44 @@
+<%= form_for([@client, @account], html: { role: 'form', class: 'form-horizontal' }) do |f| %>
+  <div class='form-group'>
+      <%= f.label :account_type, 'Account Type', class: 'col-sm-3 control-label' %>
+    <div class='col-sm-9'>
+      <%= f.text_field :account_type, id: 'account_type', placeholder: "Router", class: 'form-control', required: true %>
+    </div>
+  </div>
+  <div class='form-group'>
+      <%= f.label :name, 'Name', class: 'col-sm-3 control-label' %>
+    <div class='col-sm-9'>
+      <%= f.text_field :name, id: 'name', class: 'form-control', required: true %>
+    </div>
+  </div>
+  <div class='form-group'>
+      <%= f.label :address, 'Address', class: 'col-sm-3 control-label' %>
+    <div class='col-sm-9'>
+      <%= f.text_field :address, id: 'address', placeholder: "192.168.1.1", class: 'form-control', required: true %>
+    </div>
+  </div>
+  <div class='form-group'>
+      <%= f.label :username, 'Username', class: 'col-sm-3 control-label' %>
+    <div class='col-sm-9'>
+      <%= f.text_field :username, id: 'username', placeholder: "Admin", class: 'form-control', required: true %>
+    </div>
+  </div>
+  <div class='form-group'>
+      <%= f.label :password, 'Password', class: 'col-sm-3 control-label' %>
+    <div class='col-sm-9'>
+      <%= f.text_field :password, id: 'password', placeholder: "A$ekr3tPa$$0wrd!", class: 'form-control', required: true %>
+    </div>
+  </div>
+  <div class='modal-footer'>
+    <button
+      type='button'
+      class='btn btn-danger'
+      data-dismiss='modal'
+    >
+      <%= icon('fas', 'ban') %> Cancel
+    </button>
+    <%= button_tag(class: 'btn btn-primary') do %>
+      <%= icon('fas', 'check') %> Save
+    <% end %>
+  </div>
+<% end %>
