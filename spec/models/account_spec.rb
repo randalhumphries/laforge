@@ -6,7 +6,7 @@ RSpec.describe Account, type: :model do
   end
 
   it 'is not valid without a type attribute' do
-    expect(build(:account, type: nil)).to_not be_valid
+    expect(build(:account, account_type: nil)).to_not be_valid
   end
 
   it 'is not valid without a username attribute' do
