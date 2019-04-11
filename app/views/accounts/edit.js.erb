@@ -1,5 +1,10 @@
 $('#modal-window-edit-account').find('.modal-content').html('<%= j (render 'edit') %>');
 $('#modal-window-edit-account').modal();
+$('#account_account_type').select2({
+    dropdownParent: $("#modal-window-edit-account"),
+    theme: "bootstrap",
+    placeholder: 'Select an account type',
+});
 $('#modal-window-edit-account').on('shown.bs.modal', function () {
-    $('#account_type').focus();
+    $('#account_account_type').focus();
 })

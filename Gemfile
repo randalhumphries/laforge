@@ -27,6 +27,8 @@ gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'jquery-rails'
 # Use Font Awesome
 gem 'font-awesome-sass', '~> 5.6.1'
+# Use Select2 Rails
+gem 'select2-rails'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

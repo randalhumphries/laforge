@@ -2,7 +2,17 @@
   <div class='form-group'>
       <%= f.label :account_type, 'Account Type', class: 'col-sm-3 control-label' %>
     <div class='col-sm-9'>
-      <%= f.text_field :account_type, id: 'account_type', placeholder: "Router", class: 'form-control', required: true %>
+      <%= f.select :account_type,
+        [
+          ['Application'], 
+          ['Domain'],
+          ['Phone System'],
+          ['Router'],
+          ['SSH'],
+          ['Server'],
+          ['WiFi']
+        ],
+        { id: 'account_type', class: "form-control" }  %>
     </div>
   </div>
   <div class='form-group'>
