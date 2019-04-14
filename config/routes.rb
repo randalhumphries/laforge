@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :contacts
     resources :locations
     resources :accounts
+    resources :networks
   end
   devise_for :users
 end

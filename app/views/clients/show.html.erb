@@ -173,3 +173,54 @@
   </div>
 <% end %>
 <hr />
+<h2>Networks <%= link_to(icon('fas', 'plus-square', class: 'fa-xs'),
+  new_client_network_path(@client), { :remote => true, 'data-toggle' => "modal", 'data-target' => "#modal-window-new-network"}) %>
+</h2>
+
+<!-- New Network Modal -->
+<div id="modal-window-new-network" class="modal fade" role="dialog" aria-labelledby="newNetwork" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
+<!-- Edit Network Modal -->
+<div id="modal-window-edit-network" class="modal fade" role="dialog" aria-labelledby="editNetwork" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
+<% if @client.networks.empty? %>
+  <!-- Message if there aren't any networks to display -->
+  <div class="text-center">
+    <h2>Add a network to get started!</h2>
+  </div>
+<% else %>
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>Network Type</th>
+          <th>IP Address/Subnet</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <% @client.networks.each do |network| %>
+        <tr>
+          <td><%= network.network_type %></td>
+          <td><%= network.ip_subnet %></td>
+          <td><%= network.description %></td>
+          <td>
+            <%= link_to(icon('fas', 'edit', class: 'fa-2x'),
+              edit_client_network_path(@client, network), { :remote => true, 'data-toggle' => "modal", 'data-target' => "#modal-window-edit"}) %>
+            <%= link_to(icon('fas', 'trash-alt', class: 'fa-2x'), client_network_path(@client, network), method: :delete,
+              data: { confirm: 'Are you sure?' }) %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>
+<hr />

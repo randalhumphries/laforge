@@ -1,0 +1,10 @@
+$('#modal-window-edit-network').find('.modal-content').html('<%= j (render 'edit') %>');
+$('#modal-window-edit-network').modal();
+$('#network_network_type').select2({
+    dropdownParent: $("#modal-window-edit-network"),
+    theme: "bootstrap",
+    placeholder: 'Select an account type',
+});
+$('#modal-window-edit-network').on('shown.bs.modal', function () {
+    $('#network_network_type').focus();
+})
