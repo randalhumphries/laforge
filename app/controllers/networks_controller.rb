@@ -25,7 +25,7 @@ class NetworksController < ApplicationController
   end
 
   def update
-    if @network.update(account_params)
+    if @network.update(network_params)
       redirect_to client_path(@client)
     else
       flash[:error] = @network.errors.full_messages.to_sentence
@@ -54,11 +54,11 @@ class NetworksController < ApplicationController
       @client = current_user.company.clients.find(params[:client_id])
     end
 
-    def find_accounts
-      @networks = current_user.company.clients.find(params[:client_id]).accounts
+    def find_networks
+      @networks = current_user.company.clients.find(params[:client_id]).networks
     end
 
-    def find_account
+    def find_network
       @network = current_user.company.clients.find(params[:client_id]).networks.find(params[:id])
     end
 end
